@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notyf.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/power.svg') }}">
+    <script src="{{ url_for('static', filename='js/notyf.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+</head>
+
+<body class="bg-black text-white p-6 max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold">Home</h1>
+        <a href="/edit"
+            class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-2 pl-0">
+            <img src="/static/icons/edit.svg" class="ml-3 w-5" alt="edit">
+            Edit
+        </a>
+    </div>
+
+    <p style="display: none" id="nodevicesfound" class="text-gray-500 font-semibold text-center">No devices found.
+    </p>
+
+    <div class="space-y-4">
+        {% for pc in pcs %}
+        <div class="bg-gray-900 p-4 rounded-lg flex justify-between items-center" id="pc-{{ pc.id }}">
+            <div>
+                <h2 class="text-lg font-semibold">{{ pc.name }}</h2>
+                <p class="flex items-center space-x-2">
+                    <span class="status-led w-3 h-3 bg-orange-500 rounded-full"></span>
+                    <span class="status-text">pinging</span>
+                </p>
+                <p class="text-gray-400">{{ pc.ip }}</p>
+                <p class="text-gray-500">{{ pc.mac | join(':') | upper }}</p>
+            </div>
+            <button data-tooltip="Start" onclick="sendPacket({{ pc.id }})"
+                class="bg-gray-700 w-14 h-14 rounded-lg flex items-center justify-center hover:bg-gray-600 transition tooltip-btn">
+                <img class="w-6 h-6 max-w-none flex-none" alt="Start" src="/static/icons/power.svg"> <!-- here it doesn't -->
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <p class="text-gray-500">Refreshing all statuses in <b id="refresh-countdown"></b> seconds.</p>
+    <p class="text-gray-500">NikoWoL</p>
+</body>
+
+</html>

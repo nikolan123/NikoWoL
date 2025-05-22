@@ -1,0 +1,26 @@
+{
+  "name": "nikowol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:tailwind": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css",
+    "watch:tailwind": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolan123/NikoWoL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolan123/NikoWoL/issues"
+  },
+  "homepage": "https://github.com/nikolan123/NikoWoL#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.7",
+    "tailwindcss": "^4.1.7"
+  }
+}

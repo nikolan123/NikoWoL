@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+.coverage
+.tox/
+.mypy_cache/
+.pytest_cache/
+htmlcov/
+
+# Node.js / Tailwind CSS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git
+.gitignore
+
+# Docker
+docker-data/
+
+# IDE specific files
+.idea/ # PyCharm
+.vscode/ # VS Code
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db
+
+# NikoWoL
+data/
+static/css/output.css
+config/config.json

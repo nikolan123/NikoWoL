@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Device</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notyf.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/power.svg') }}">
+    <script src="{{ url_for('static', filename='js/notyf.min.js') }}"></script>
+    <script>
+        // Expose pcid for JS to detect edit mode
+        window.pcid = {{ pcid }};
+    </script>
+    <script src="{{ url_for('static', filename='js/add.js') }}"></script>
+</head>
+
+<body class="grid-background bg-black text-white p-6">
+    <div class="max-w-3xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Edit Device</h1>
+            <a href="/edit" class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-1 pl-0">
+                <img src="/static/icons/back.svg" class="ml-3 w-5" alt="Back">
+                Back
+            </a>
+        </div>
+
+        <div class="space-y-4 bg-gray-900 p-6 rounded-lg">
+            <div>
+                <label for="pretty_name" class="block text-gray-400 mb-1">Pretty Name</label>
+                <input id="pretty_name" placeholder="{{ pretty_name }}" value="{{ pretty_name }}" type="text" required
+                    class="w-full p-3 bg-gray-800 rounded-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600">
+            </div>
+            <div>
+                <label for="device_ip" class="block text-gray-400 mb-1">IP Address</label>
+                <input id="device_ip" placeholder="{{ device_ip }}" value="{{ device_ip }}" type="text" required
+                    class="w-full p-3 bg-gray-800 rounded-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600">
+            </div>
+            <div>
+                <label for="mac_address" class="block text-gray-400 mb-1">MAC Address</label>
+                <input id="mac_address" placeholder="{{ mac_address }}" value="{{ mac_address }}" type="text" required
+                    class="w-full p-3 bg-gray-800 rounded-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600">
+            </div>
+            <button onclick="updateDevice({{ pcid }})"
+                class="w-full bg-gray-700 hover:bg-gray-600 transition p-3 rounded-lg text-white font-semibold">Save</button>
+        </div>         
+
+        <p class="text-gray-500 mt-6">NikoWoL</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notyf.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/power.svg') }}">
+    <script src="{{ url_for('static', filename='js/notyf.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+</head>
+
+<body class="grid-background bg-black text-white p-6 max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold">Edit</h1>
+        <div class="flex gap-2">
+            <a href="/"
+                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-1 pl-0">
+                <img src="/static/icons/tick.svg" class="ml-3 w-5" alt="Done">
+                Done
+            </a>
+            <a href="/add"
+                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-1 pl-0">
+                <img src="/static/icons/add.svg" class="ml-3 w-5" alt="Add">
+                Add
+            </a>
+        </div>
+    </div>
+
+    <p style="display: none" id="nodevicesfound" class="text-gray-500 font-semibold text-center">No devices found.</p>
+
+    <div class="space-y-4">
+        {% for pc in pcs %}
+        {% if pc.id | int == request.args.get('added') | int %}
+        <div style="display: none;" class="bg-gray-900 p-4 rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center"
+            id="pc-{{ pc.id }}">
+            {% else %}
+            <div class="bg-gray-900 p-4 rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center" id="pc-{{ pc.id }}">
+                {% endif %}
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-lg font-semibold">{{ pc.name }}</h2>
+                    <p class="flex items-center space-x-2">
+                        <span class="status-led w-3 h-3 {% if pc.online %}bg-green-500{% else %}bg-red-500{% endif %} rounded-full"></span>
+                        <span class="status-text">{{ 'online' if pc.online else 'offline' }}</span>
+                    </p>
+                    <p class="text-gray-400">{{ pc.ip }}</p>
+                    <p class="text-gray-500">{{ pc.mac | join(':') | upper }}</p>
+                </div>
+
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <div class="bg-gray-700 rounded-lg flex sm:inline-flex">
+                        <div data-tooltip="Move up" onclick="moveDevice({{ pc.id }}, 'up')"
+                            class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
+                            <img src="/static/icons/up.svg" class="w-6 h-6 max-w-none flex-none" alt="Move up">
+                        </div>
+
+                        <div class="w-px h-6 bg-gray-500 self-center"></div>
+
+                        <div data-tooltip="Move down" onclick="moveDevice({{ pc.id }}, 'down')"
+                            class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
+                            <img src="/static/icons/down.svg" class="w-6 h-6 max-w-none flex-none" alt="Move down">
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg flex sm:inline-flex">
+                        <a data-tooltip="Edit device" href="/edit/{{ pc.id }}"
+                            class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
+                            <img src="/static/icons/edit.svg" class="w-6 h-6 max-w-none flex-none" alt="Edit">
+                        </a>
+
+                        <div class="w-px h-6 bg-gray-500 self-center"></div>
+
+                        <button data-tooltip="Delete device" onclick="deleteDevice({{ pc.id }})"
+                            class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn md:w-14 md:flex-none">
+                            <img src="/static/icons/delete.svg" class="w-6 h-6 max-w-none flex-none" alt="Delete">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <br>
+        <p class="text-gray-500">Refreshing all statuses in <b id="refresh-countdown"></b> seconds.</p>
+        <p class="text-gray-500">NikoWoL</p>
+</body>
+
+</html>
