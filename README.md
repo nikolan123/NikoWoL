@@ -18,6 +18,20 @@ There are currently the following entries in the configuration file:
 * **`PORT`** (integer, defaults to `5545`):
     * The port number the application should listen on.
 
+## Setup - Docker
+
+Use the following command to run NikoWoL:
+```bash
+sudo docker run -d \
+  --name nikowol_app \
+  --network host \
+  -e APP_HOST=0.0.0.0 \
+  -e APP_PORT=5545 \
+  nikolan123/nikowol:latest
+```
+
+Host network access is required to broadcast magic packets.
+
 ## Setup - Without Docker
 
 This section guides you through setting up and running the project directly on your machine without using Docker.
