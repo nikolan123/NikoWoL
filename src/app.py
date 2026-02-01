@@ -318,6 +318,9 @@ def move_device():
 
     return jsonify({"success": "true"})
 
+@app.route('/api/devices', methods=['GET'])
+async def api_devices():
+    return jsonify(db)
 
 if __name__ == '__main__':
     # check if file exists and load
