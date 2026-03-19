@@ -12,15 +12,16 @@ The application's settings are managed via a JSON configuration file.
 There are currently the following entries in the configuration file:
 
 * **`HOST`** (string):
-    * The IP address the application should bind to.
-    * Set to `127.0.0.1` if you want it to be accessible only from the machine running the application.
-    * Set to `0.0.0.0` to expose it to all machines on the network.
+  * The IP address the application should bind to.
+  * Set to `127.0.0.1` if you want it to be accessible only from the machine running the application.
+  * Set to `0.0.0.0` to expose it to all machines on the network.
 * **`PORT`** (integer, defaults to `5545`):
-    * The port number the application should listen on.
+  * The port number the application should listen on.
 
 ## Setup - Docker
 
 Use the following command to run NikoWoL:
+
 ```bash
 sudo docker run -d \
   --name nikowol_app \
@@ -62,6 +63,7 @@ To create a virtual environment:
 `python -m venv .venv`
 
 To activate the virtual environment (choose your OS command):
+
 * On Windows: `.venv\Scripts\activate`
 * On macOS/Linux: `source .venv/bin/activate`
 
@@ -86,7 +88,7 @@ Make sure to modify `config/config.json` to your needs (e.g., set your `SECRET_K
 
 For local development, you will typically run two processes concurrently in separate terminal windows: one for Tailwind CSS to watch for changes and one for the Flask application.
 
-**Terminal 1: Run Tailwind CSS in Watch Mode**
+#### Terminal 1: Run Tailwind CSS in Watch Mode**
 
 This command will watch for changes in your `input.css` and HTML templates, automatically recompiling `static/css/output.css` whenever necessary.
 
@@ -94,7 +96,7 @@ This command will watch for changes in your `input.css` and HTML templates, auto
 
 Or `npm run build:tailwind` if you want to build the CSS just once.
 
-**Terminal 2: Run the Flask Application**
+#### Terminal 2: Run the Flask Application**
 
 This command will start your Flask development server. Ensure you are in the project's root directory.
 
