@@ -28,7 +28,7 @@ sudo docker run -d \
   --network host \
   -e APP_HOST=0.0.0.0 \
   -e APP_PORT=5545 \
-  nikolan123/nikowol:latest
+  ghcr.io/nikolan123/nikowol:latest
 ```
 
 Host network access is required to broadcast magic packets.
