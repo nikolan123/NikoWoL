@@ -5,8 +5,6 @@ services:
     # image: ghcr.io/nikolan123/nikowol:latest
     build: .
     container_name: wol-app
-    ports:
-      - "5545:5545"
     environment:
       - APP_HOST=0.0.0.0
       - APP_PORT=5545
