@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   wol-app:
+    # image: ghcr.io/nikolan123/nikowol:latest
     build: .
     container_name: wol-app
     ports:
