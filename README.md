@@ -20,16 +20,46 @@ There are currently the following entries in the configuration file:
 
 ## Setup - Docker
 
+### Using Docker Compose (Recommended)
+
+1. Clone the repository:
+```bash
+git clone https://github.com/nikolan123/NikoWoL
+cd NikoWoL
+```
+
+2. Start the application:
+```bash
+docker-compose up -d
+```
+
+Your device data will be persisted in the `./nikowol_data` directory on your host machine. Configuration is managed via environment variables in the docker-compose.yml file.
+
+To stop the application:
+```bash
+docker-compose down
+```
+
+To rebuild after code changes:
+```bash
+docker-compose up -d --build
+```
+
+### Using Docker Run
+
 Use the following command to run NikoWoL:
 
 ```bash
 sudo docker run -d \
   --name nikowol_app \
   --network host \
+  -v $(pwd)/data:/app/data \
   -e APP_HOST=0.0.0.0 \
   -e APP_PORT=5545 \
   ghcr.io/nikolan123/nikowol:latest
 ```
+
+Note: Add the `-v` volume mount to persist your device data.
 
 Host network access is required to broadcast magic packets.
 

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wol-app:
+    build: .
+    container_name: wol-app
+    ports:
+      - "5545:5545"
+    environment:
+      - APP_HOST=0.0.0.0
+      - APP_PORT=5545
+    volumes:
+      - ./nikowol_data:/app/data
+    restart: unless-stopped
+    network_mode: host
