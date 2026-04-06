@@ -156,5 +156,5 @@ This project uses the following open-source libraries:
 * **aioping** — GNU General Public License v2 (GPL-2.0)  
   [https://github.com/stellarbit/aioping](https://github.com/stellarbit/aioping)
 
-* **Material Icons** — Licensed under the Apache License 2.0  
-  [https://github.com/google/material-design-icons](https://github.com/google/material-design-icons)
+* **Lucide Icons** — ISC License  
+  [https://lucide.dev/](https://lucide.dev/)
