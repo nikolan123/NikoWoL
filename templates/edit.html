@@ -17,13 +17,13 @@
         <h1 class="text-3xl font-bold">Edit</h1>
         <div class="flex gap-2">
             <a href="/"
-                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-1 pl-0">
-                <img src="/static/icons/tick.svg" class="ml-3 w-5" alt="Done">
+                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-2">
+                <span class="i-lucide-check w-5 h-5"></span>
                 Done
             </a>
             <a href="/add"
-                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-1 pl-0">
-                <img src="/static/icons/add.svg" class="ml-3 w-5" alt="Add">
+                class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-2">
+                <span class="i-lucide-plus w-5 h-5"></span>
                 Add
             </a>
         </div>
@@ -53,28 +53,28 @@
                     <div class="bg-gray-700 rounded-lg flex sm:inline-flex">
                         <div data-tooltip="Move up" onclick="moveDevice({{ pc.id }}, 'up')"
                             class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
-                            <img src="/static/icons/up.svg" class="w-6 h-6 max-w-none flex-none" alt="Move up">
+                            <span class="i-lucide-chevron-up w-6 h-6"></span>
                         </div>
 
                         <div class="w-px h-6 bg-gray-500 self-center"></div>
 
                         <div data-tooltip="Move down" onclick="moveDevice({{ pc.id }}, 'down')"
                             class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
-                            <img src="/static/icons/down.svg" class="w-6 h-6 max-w-none flex-none" alt="Move down">
+                            <span class="i-lucide-chevron-down w-6 h-6"></span>
                         </div>
                     </div>
 
                     <div class="bg-gray-700 rounded-lg flex sm:inline-flex">
                         <a data-tooltip="Edit device" href="/edit/{{ pc.id }}"
                             class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn sm:w-14 sm:flex-none">
-                            <img src="/static/icons/edit.svg" class="w-6 h-6 max-w-none flex-none" alt="Edit">
+                            <span class="i-lucide-pencil w-6 h-6"></span>
                         </a>
 
                         <div class="w-px h-6 bg-gray-500 self-center"></div>
 
                         <button data-tooltip="Delete device" onclick="deleteDevice({{ pc.id }})"
                             class="flex-1 flex items-center justify-center h-14 hover:bg-gray-600 transition tooltip-btn md:w-14 md:flex-none">
-                            <img src="/static/icons/delete.svg" class="w-6 h-6 max-w-none flex-none" alt="Delete">
+                            <span class="i-lucide-trash-2 w-6 h-6"></span>
                         </button>
                     </div>
                 </div>

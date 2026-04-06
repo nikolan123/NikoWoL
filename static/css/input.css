@@ -1,6 +1,10 @@
 /* static/input.css */
 @import "tailwindcss";
 @source "../../templates/*.html";
+@plugin "@egoist/tailwindcss-icons" {
+  scale: 1;
+  strokeWidth: 2;
+}
 
 /* tooltips */
 .tooltip-btn {
