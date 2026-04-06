@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NikoWoL - Wake-on-LAN Web Interface</title>
+    <meta name="description" content="Self-hosted Wake-on-LAN web interface with device management and real-time status monitoring">
+    <meta property="og:title" content="NikoWoL">
+    <meta property="og:description" content="Self-hosted Wake-on-LAN web interface">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nikowol.nikolan.net">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="power.svg" alt="NikoWoL">
+            </div>
+            <h1>NikoWoL</h1>
+            <p class="subtitle">Self-hosted Wake-on-LAN web interface</p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/nikolan123/NikoWoL" class="btn btn-primary">View on GitHub</a>
+                <a href="#quick-start" class="btn btn-secondary">Quick Start</a>
+            </div>
+        </header>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📡</div>
+                <h3>Wake-on-LAN</h3>
+                <p>Send magic packets to wake up devices on your local network with real-time status monitoring</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🐳</div>
+                <h3>Docker Ready</h3>
+                <p>Easy deployment with Docker and Docker Compose, with persistent SQLite storage</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>Clean Interface</h3>
+                <p>Modern dark theme built with Tailwind CSS and intuitive device management</p>
+            </div>
+        </div>
+
+        <div class="install-section" id="quick-start">
+            <h2>Quick Start with Docker Compose</h2>
+            <pre><code>git clone https://github.com/nikolan123/NikoWoL
+cd NikoWoL
+docker-compose up -d</code></pre>
+            <p style="margin-top: 20px; color: #888;">Access the interface at <code>http://localhost:5545</code></p>
+        </div>
+
+        <footer>
+            <p>Made by Niko • <a href="mailto:niko@nikolan.net">niko@nikolan.net</a></p>
+            <p style="margin-top: 10px;">Licensed under GPLv3</p>
+        </footer>
+    </div>
+</body>
+</html>
